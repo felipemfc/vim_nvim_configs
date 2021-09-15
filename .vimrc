@@ -38,6 +38,7 @@ call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'vim-scripts/AutoComplPop'
 	Plug 'vim-airline/vim-airline'
+	Plug 'airblade/vim-gitgutter'
 	if has('nvim')
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
