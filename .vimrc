@@ -3,6 +3,7 @@
 
 " Geral
 set number " show line number
+"set relativenumber
 set mouse=a " allows mouse to be used
 set autoindent " new lines inherit the identetions of previous line
 set copyindent
@@ -42,6 +43,7 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
 	if has('nvim')
+	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -76,3 +78,7 @@ nnoremap fh :Telescope help_tags<cr>
 " Vim Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
