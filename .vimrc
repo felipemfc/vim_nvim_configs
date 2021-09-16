@@ -2,7 +2,8 @@
 " Felipe Moura
 
 "auto install vim-plug
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+let neovim = has('nvim')
+let data_dir = neovim ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
       silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
@@ -49,7 +50,7 @@ call plug#begin()
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
-	if has('nvim')
+	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
@@ -63,7 +64,6 @@ map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 syntax enable
-colorscheme afterglow
 
 " maps
 imap jk <Esc>
@@ -76,12 +76,6 @@ noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-" Telescope shortcuts
-nnoremap ff :Telescope find_files<cr>
-nnoremap fg :Telescope live_grep<cr>
-nnoremap fb :Telescope buffers<cr>
-nnoremap fh :Telescope help_tags<cr>
-
 " Vim Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -89,3 +83,16 @@ let g:airline_left_sep = ''
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
+
+" neovim only plugigns config
+if neovim
+    
+    colorscheme afterglow
+
+    " Telescope shortcuts
+    nnoremap ff :Telescope find_files<cr>
+    nnoremap fg :Telescope live_grep<cr>
+    nnoremap fb :Telescope buffers<cr>
+    nnoremap fh :Telescope help_tags<cr>
+
+endif
