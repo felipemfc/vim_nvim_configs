@@ -1,7 +1,7 @@
 " .vimrc
 " Felipe Moura
 
-"auto install vim-plug
+""" Auto install vim-plug -------------------------------------------
 let neovim = has('nvim')
 let data_dir = neovim ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -9,9 +9,8 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
     endif
 
-" Geral
+""" Geral -----------------------------------------------------------
 set number " show line number
-"set relativenumber
 set mouse=a " allows mouse to be used
 set autoindent " new lines inherit the identetions of previous line
 set copyindent
@@ -22,6 +21,7 @@ set hidden
 set shiftwidth=4 " number of spaces to use for autoindenting
 set splitright
 set clipboard=unnamed
+syntax enable
 
 " disable annoying beep
 set noerrorbells
@@ -37,12 +37,23 @@ if has('unix')
 endif
 
 " autocomplete
-" Just use CTRL + P to show the menu
 set complete+=kspell
 set shortmess+=c
 set completeopt=menuone,longest,preview
 
-" plugins
+"" Maps +
+" general
+imap jk <Esc>
+nmap <C-s> :w<cr>
+nmap <F9> :w<cr>:!pipenv run python3 %<cr>
+
+" disables arrow keys
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+""" Plugins ---------------------------------------------------------
 call plug#begin()
 	Plug 'preservim/nerdtree'
 	Plug 'vim-scripts/AutoComplPop'
@@ -59,22 +70,10 @@ call plug#begin()
 	endif
 call plug#end()
 
+"" Plug options ++
 " NERDtree options
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-
-syntax enable
-
-" maps
-imap jk <Esc>
-nmap <C-s> :w<cr>
-nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-
-" disables arrow keys
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
 
 " Vim Airline options
 let g:airline#extensions#tabline#enabled = 1
@@ -84,7 +83,7 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
 
-" neovim only plugigns config
+"" Neovim only plugigns config ++
 if neovim
     
     colorscheme afterglow
