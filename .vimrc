@@ -46,6 +46,7 @@ set completeopt=menuone,longest,preview
 imap jk <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
+nmap mm :bn<cr>
 
 " disables arrow keys
 noremap <Up> <Nop>
