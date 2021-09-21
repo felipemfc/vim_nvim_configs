@@ -62,12 +62,13 @@ call plug#begin()
 	Plug 'airblade/vim-gitgutter'
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
+	Plug 'sonph/onehalf', { 'rtp': 'vim' }
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	    Plug 'danilo-augusto/vim-afterglow'
+	    " Plug 'danilo-augusto/vim-afterglow'
 	endif
 call plug#end()
 
@@ -75,6 +76,15 @@ call plug#end()
 " NERDtree options
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+" Onehalf theme options
+syntax on
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+let g:airline_theme='onehalfdark'
+" lightline
+let g:lightline= { 'colorscheme': 'onehalfdark' }
 
 " Vim Airline options
 let g:airline#extensions#tabline#enabled = 1
@@ -87,7 +97,7 @@ let g:airline_right_sep = ''
 "" Neovim only plugigns config ++
 if neovim
     
-    colorscheme afterglow
+    " colorscheme afterglow
 
     " Telescope shortcuts
     nnoremap ff :Telescope find_files<cr>
