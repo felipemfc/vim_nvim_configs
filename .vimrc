@@ -46,7 +46,8 @@ set completeopt=menuone,longest,preview
 imap jk <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
-nmap mm :bn<cr>
+nmap tt :bn<cr>
+nmap td :bdelete<cr>
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -68,7 +69,6 @@ call plug#begin()
 	    Plug 'nvim-lua/plenary.nvim'
 	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-	    " Plug 'danilo-augusto/vim-afterglow'
 	endif
 call plug#end()
 
