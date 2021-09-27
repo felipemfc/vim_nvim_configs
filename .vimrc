@@ -97,12 +97,12 @@ let g:airline_right_sep = ''
 "" Neovim only plugigns config ++
 if neovim
     
-    " colorscheme afterglow
-
     " Telescope shortcuts
     nnoremap ff :Telescope find_files<cr>
     nnoremap fg :Telescope live_grep<cr>
     nnoremap fb :Telescope buffers<cr>
     nnoremap fh :Telescope help_tags<cr>
+    nnoremap fs :Telescope git_status<cr>
+    nnoremap fd :Telescope file_browser<cr>
 
 endif
