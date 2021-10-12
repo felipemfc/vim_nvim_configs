@@ -43,12 +43,14 @@ set completeopt=menuone,longest,preview
 
 "" Maps +
 " general
+map ; :
 imap jk <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
 nmap <Tab><Tab> <C-w><C-w>
 nmap <Tab>t :bn<cr>
 nmap <Tab>d :bdelete<cr>
+nmap <Tab>v :vert<space>sbNext<cr>
 
 " disables arrow keys
 noremap <Up> <Nop>
