@@ -65,6 +65,8 @@ call plug#begin()
 	Plug 'tpope/vim-fugitive'
 	Plug 'tpope/vim-commentary'
 	Plug 'sonph/onehalf', { 'rtp': 'vim' }
+	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'junegunn/fzf.vim'
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-lua/plenary.nvim'
