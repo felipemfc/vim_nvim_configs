@@ -72,7 +72,6 @@ call plug#begin()
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-lua/plenary.nvim'
-	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	endif
 call plug#end()
@@ -81,6 +80,12 @@ call plug#end()
 " NERDtree options
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+" fzf opts
+nnoremap ff :Files<cr>
+nnoremap fg :Rg<cr>
+nnoremap fb :Buffers<cr>
+nnoremap fd :NERDTreeToggle<CR>
 
 " Onehalf theme options
 syntax on
@@ -99,15 +104,3 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
 
-"" Neovim only plugigns config ++
-if neovim
-    
-    " Telescope shortcuts
-    nnoremap ff :Telescope find_files<cr>
-    nnoremap fg :Telescope live_grep<cr>
-    nnoremap fb :Telescope buffers<cr>
-    nnoremap fh :Telescope help_tags<cr>
-    nnoremap fs :Telescope git_status<cr>
-    nnoremap fd :Telescope file_browser<cr>
-
-endif
