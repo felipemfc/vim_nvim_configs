@@ -47,10 +47,16 @@ map ; :
 imap jk <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
+" tab control
 nmap <Tab><Tab> <C-w><C-w>
-nmap <Tab>t :bn<cr>
-nmap <Tab>d :bdelete<cr>
-nmap <Tab>v :vert<space>sbNext<cr>
+nmap <Tab>t <Esc>:bn<cr>
+nmap <Tab><Right> <Esc>:bn<cr>
+nmap <Tab>l <Esc>:bn<cr>
+nmap <Tab><Left> <Esc>:bp<cr>
+nmap <Tab>h <Esc>:bp<cr>
+nmap <Tab>d <Esc>:bdelete<cr>
+nmap <Tab>v <Esc>:vert<space>sbNext<cr>
+
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -71,8 +77,6 @@ call plug#begin()
 	Plug 'junegunn/fzf.vim'
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
-	    Plug 'nvim-lua/plenary.nvim'
-	    Plug 'nvim-telescope/telescope.nvim'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	endif
 call plug#end()
@@ -81,6 +85,12 @@ call plug#end()
 " NERDtree options
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+" fzf opts
+nnoremap ff :Files<cr>
+nnoremap fg :Rg<cr>
+nnoremap fb :Buffers<cr>
+nnoremap fd :NERDTreeToggle<CR>
 
 " Onehalf theme options
 syntax on
@@ -99,15 +109,3 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_sep = ''
 
-"" Neovim only plugigns config ++
-if neovim
-    
-    " Telescope shortcuts
-    nnoremap ff :Telescope find_files<cr>
-    nnoremap fg :Telescope live_grep<cr>
-    nnoremap fb :Telescope buffers<cr>
-    nnoremap fh :Telescope help_tags<cr>
-    nnoremap fs :Telescope git_status<cr>
-    nnoremap fd :Telescope file_browser<cr>
-
-endif
