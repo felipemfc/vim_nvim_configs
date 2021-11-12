@@ -57,7 +57,6 @@ nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
 
-
 " disables arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
