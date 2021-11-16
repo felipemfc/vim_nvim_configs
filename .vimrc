@@ -57,6 +57,7 @@ nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
 
+
 " disables arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -77,6 +78,8 @@ call plug#begin()
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	    Plug 'nvim-lua/plenary.nvim'
+	    Plug 'nvim-telescope/telescope.nvim'
 	endif
 call plug#end()
 
@@ -86,10 +89,10 @@ map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " fzf opts
-nnoremap ff :Files<cr>
-nnoremap fg :Rg<cr>
-nnoremap fb :Buffers<cr>
-nnoremap fd :NERDTreeToggle<CR>
+nnoremap ff <cmd>Telescope find_files<cr>
+nnoremap fg <cmd>Telescope live_grep<cr>
+nnoremap fb <cmd>Telescope buffers<cr>
+nnoremap fh <cmd>Telescope help_tags<cr>
 
 " Onehalf theme options
 syntax on
