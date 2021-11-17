@@ -88,11 +88,15 @@ call plug#end()
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
-" fzf opts
+" Telescope opts
 nnoremap ff <cmd>Telescope find_files<cr>
 nnoremap fg <cmd>Telescope live_grep<cr>
 nnoremap fb <cmd>Telescope buffers<cr>
 nnoremap fh <cmd>Telescope help_tags<cr>
+nnoremap fd <cmd>Telescope file_browser<cr>
+nnoremap fl <cmd>Telescope live_grep<cr>
+nnoremap fi <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap fr <cmd>Telescope lsp_references<cr>
 
 " Onehalf theme options
 syntax on
