@@ -23,6 +23,9 @@ set splitright
 set clipboard=unnamed
 syntax enable
 
+let mapleader = ","
+let maplocalleader = "\\"
+
 " disable annoying beep
 set noerrorbells
 set vb t_vb=
@@ -45,10 +48,11 @@ set completeopt=menuone,longest,preview
 " general
 map ; :
 imap jk <Esc>
+imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
 " tab control
-nmap <Tab><Tab> <C-w><C-w>
+nmap <Tab><Tab> <esc><C-w><C-w>
 nmap <Tab>t <Esc>:bn<cr>
 nmap <Tab><Right> <Esc>:bn<cr>
 nmap <Tab>l <Esc>:bn<cr>
@@ -89,14 +93,14 @@ map <F2> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 " Telescope opts
-nnoremap ff <cmd>Telescope find_files<cr>
-nnoremap fg <cmd>Telescope live_grep<cr>
-nnoremap fb <cmd>Telescope buffers<cr>
-nnoremap fh <cmd>Telescope help_tags<cr>
-nnoremap fd <cmd>Telescope file_browser<cr>
-nnoremap fl <cmd>Telescope live_grep<cr>
-nnoremap fi <cmd>Telescope current_buffer_fuzzy_find<cr>
-nnoremap fr <cmd>Telescope lsp_references<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>h <cmd>Telescope help_tags<cr>
+nnoremap <leader>d <cmd>Telescope file_browser<cr>
+nnoremap <leader>l <cmd>Telescope live_grep<cr>
+nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>r <cmd>Telescope lsp_references<cr>
 
 " Onehalf theme options
 syntax on
