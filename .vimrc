@@ -23,6 +23,9 @@ set splitright
 set clipboard=unnamed
 syntax enable
 
+let mapleader = ","
+let maplocalleader = "\\"
+
 " disable annoying beep
 set noerrorbells
 set vb t_vb=
@@ -45,10 +48,11 @@ set completeopt=menuone,longest,preview
 " general
 map ; :
 imap jk <Esc>
+imap JK <Esc>
 nmap <C-s> :w<cr>
 nmap <F9> :w<cr>:!pipenv run python3 %<cr>
 " tab control
-nmap <Tab><Tab> <C-w><C-w>
+nmap <Tab><Tab> <esc><C-w><C-w>
 nmap <Tab>t <Esc>:bn<cr>
 nmap <Tab><Right> <Esc>:bn<cr>
 nmap <Tab>l <Esc>:bn<cr>
@@ -56,6 +60,7 @@ nmap <Tab><Left> <Esc>:bp<cr>
 nmap <Tab>h <Esc>:bp<cr>
 nmap <Tab>d <Esc>:bdelete<cr>
 nmap <Tab>v <Esc>:vert<space>sbNext<cr>
+
 
 " disables arrow keys
 noremap <Up> <Nop>
@@ -77,19 +82,27 @@ call plug#begin()
 	if neovim
 	    Plug 'neovim/nvim-lspconfig'
 	    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	    Plug 'nvim-lua/plenary.nvim'
+	    Plug 'nvim-telescope/telescope.nvim'
 	endif
 call plug#end()
 
 "" Plug options ++
 " NERDtree options
 map <F2> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
+
 let NERDTreeShowHidden=1
 
-" fzf opts
-nnoremap ff :Files<cr>
-nnoremap fg :Rg<cr>
-nnoremap fb :Buffers<cr>
-nnoremap fd :NERDTreeToggle<CR>
+" Telescope opts
+nnoremap <leader>f <cmd>Telescope find_files<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>h <cmd>Telescope builtin<cr>
+nnoremap <leader>d <cmd>Telescope file_browser<cr>
+nnoremap <leader>l <cmd>Telescope live_grep<cr>
+nnoremap <leader>i <cmd>Telescope current_buffer_fuzzy_find<cr>
+nnoremap <leader>r <cmd>Telescope lsp_references<cr>
 
 " Onehalf theme options
 syntax on
@@ -103,8 +116,8 @@ let g:lightline= { 'colorscheme': 'onehalfdark' }
 " Vim Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_sep = ''
 
