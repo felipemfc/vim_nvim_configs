@@ -90,6 +90,8 @@ call plug#end()
 "" Plug options ++
 " NERDtree options
 map <F2> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
+
 let NERDTreeShowHidden=1
 
 " Telescope opts
@@ -114,8 +116,8 @@ let g:lightline= { 'colorscheme': 'onehalfdark' }
 " Vim Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_right_sep = ''
 
